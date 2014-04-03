@@ -17,14 +17,14 @@ class TC(object):
         self.secs = self.end - self.start
         self.msecs = self.secs * 1000  # millisecs
         if self.verbose:
-            print 'Time-consuming: %f ms' % self.msecs
+            print 'time-consuming: %f ms' % self.msecs
 
 def Test(func):
     def wrapper(*args, **kwargs):
         start = time.time()
         func(*args, **kwargs)
         secs = time.time() - start
-        print  'Time-consuming: %f ms' % (secs * 1000)
+        print  'time-consuming: %f ms' % (secs * 1000)
     return wrapper
 
 
