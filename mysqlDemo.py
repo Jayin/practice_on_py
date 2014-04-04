@@ -11,7 +11,8 @@ config = {
     'database': DB_Name,
     'port': 3307,
     'raise_on_warnings': True,
-    # 'charset':'utf-8'
+    # 'charset':'utf8',
+    # 'autocommit':True#自动事务提交
 }
 
 
@@ -51,19 +52,40 @@ def setup():
     except mysql.connector.Error as err:
         print(err)
     finally:
+        cursor.close()
         cnx.close()
 
-def insert(id,username,nickname,psw):
+def insert1(id,username,nickname,psw):
     try:
         cnx = mysql.connector.connect(**config)
-        sql_insert = 'insert into user(id,username,nickname,psw) values(%s, %s, %s, %s)'
-                     # 'values (%s, %s, %s, %s)'
+        # sql_insert = 'insert into user(id,username,nickname,psw) values('+id+', '+username+', '+nickname+', '+psw+')'
+        #              # 'values (%s, %s, %s, %s)'
+        sql_insert =('insert into user (id,username,nickname,psw) values (%s,%s,%s,%s)')
         data = (id,username,nickname,psw)
-        print data
-        print sql_insert
         cursor = cnx.cursor()
         cursor.execute(sql_insert,data)
-        print('insert ok')
+        print('insert1 ok')
+        cnx.commit()
+    except mysql.connector.Error as err:
+        print(err)
+    finally:
+         cnx.close()
+
+def insert2(id,username,nickname,psw):
+    try:
+        cnx = mysql.connector.connect(**config)
+        sql_insert =('insert into user (id,username,nickname,psw) values (%(id)s,%(username)s,%(nickname)s,%(psw)s)')
+        # data = (id,username,nickname,psw)
+        data = {
+            'id':id,
+            'username':username,
+            'nickname':nickname,
+            'psw':psw
+        }
+        cursor = cnx.cursor()
+        cursor.execute(sql_insert,data)
+        print('insert2 ok')
+        cnx.commit()
     except mysql.connector.Error as err:
         print(err)
     finally:
@@ -84,8 +106,10 @@ def selectAll():
         cnx.close()
 # checkDB()
 # setup()
-insert('11','jayint','jayin','123456')
-insert('2222','mas','jayin','111')
+# insert1('11','jayint','jayin','123456')
+# insert1('2222','mas','jayin','111')
+insert2('333','jack','JackTian','8888111')
+insert2('4444','Hugo','虎哥','55555')
 selectAll()
 
 
