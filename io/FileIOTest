@@ -1,0 +1,35 @@
+#endcoding:utf-8
+# 默认都是读取文本文件，并且是ASCII编码的文本文件。要读取二进制文件，比如图片、视频等等，用'rb'模式打开文件即可
+# 字符编码
+# 要读取非ASCII编码的文本文件，就必须以二进制模式打开，再解码
+def readAssiFile():
+    with open('./asii.txt','rb') as f:
+        # for line in f.readlines():
+        #     print(line.encode())  #乱码
+        # print(f.read())
+        content = f.read().decode('gbk')
+        print(content)
+
+# Python还提供了一个codecs模块帮我们在读文件时自动转换编码，直接读出unicode：
+import codecs
+def readAssiFile2():
+    with codecs.open('./asii.txt','rb',encoding='gbk') as f:
+        # for line in f.readlines():
+        #     print(line.encode())  #乱码
+        # print(f.read())
+        content = f.read()
+        print(content)
+
+def readUTF8File():
+    with open('./utf8.txt') as f:
+        for line in f.readlines():
+            print(line)
+
+
+readAssiFile()
+print("-----")
+readUTF8File()
+print("-----")
+readAssiFile2()
+
+
