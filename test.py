@@ -1,7 +1,6 @@
 #encoding:utf-8
 
 import os
-import sys
 # print os.path
 # for x in sys.path:
 #     print x
@@ -69,8 +68,19 @@ def test(num):
 # print test(123)
 # print test(1234)
 
+import  json
+def filelist():
+    print os.path.join(os.getcwd(),'io')
+    print os.listdir(os.path.join(os.getcwd(), 'io'))
+    dirs = os.listdir(os.path.join(os.getcwd(), 'io'))
+    # print ','.join(dirs).split(',')
+    res = []
+    for fs in dirs:
+        res.append(fs.decode("gbk"))
+    js = json.dumps({
+        'result':res
+    })
+    print js
 
-
-
-
+filelist()
 
