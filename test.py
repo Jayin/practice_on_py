@@ -68,9 +68,11 @@ def test(num):
 # print test(123)
 # print test(1234)
 
-import  json
+import json
+
+
 def filelist():
-    print os.path.join(os.getcwd(),'io')
+    print os.path.join(os.getcwd(), 'io')
     print os.listdir(os.path.join(os.getcwd(), 'io'))
     dirs = os.listdir(os.path.join(os.getcwd(), 'io'))
     # print ','.join(dirs).split(',')
@@ -78,9 +80,11 @@ def filelist():
     for fs in dirs:
         res.append(fs.decode("gbk"))
     js = json.dumps({
-        'result':res
+        'result': res
     })
     print js
 
-filelist()
+# filelist()
+
+print 'abcdeftghtiasdfasdfasd'.ljust(10,'*')
 
