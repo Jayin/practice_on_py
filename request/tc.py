@@ -25,7 +25,7 @@ def Test(func):
         start = time.time()
         func(*args, **kwargs)
         secs = time.time() - start
-        print 'time-consuming: %d s' % (long(secs / 1000))
+        print 'time-consuming: %f s' % secs
 
     return wrapper
 
