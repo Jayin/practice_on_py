@@ -59,8 +59,8 @@ def muti_map():
         print xx
 
 
-def test(num):
-    return '0' * (4 - len(str(num))) + str(num)
+# def test(num):
+#     return '0' * (4 - len(str(num))) + str(num)
 
 
 # print test(1)
@@ -86,5 +86,5 @@ def filelist():
 
 # filelist()
 
-print 'abcdeftghtiasdfasdfasd'.ljust(10,'*')
+# print 'abcdeftghtiasdfasdfasd'.ljust(10,'*')
 
