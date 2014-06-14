@@ -88,3 +88,15 @@ def filelist():
 
 # print 'abcdeftghtiasdfasdfasd'.ljust(10,'*')
 
+
+def deleteItmeInList():
+    l = [1,2,3,4]
+    del l[0]
+    del l[0]
+    print l
+
+import webbrowser
+def browserTest():
+    url = 'http://www.python.org/'
+    print webbrowser.open_new_tab(url)
+
