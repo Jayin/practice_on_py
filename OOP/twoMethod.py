@@ -4,7 +4,11 @@ __author__ = 'Jayin Ton'
 
 
 class A(object):
-    user_id = 123  #共享对象 A.user_id即可访问，跟Java的static 定义也类似
+    '''
+    1.共享对象 A.user_id即可访问，跟Java的static 定义也类似
+    2.若从新赋值,则屏蔽了类变量，即不再是是共享变量
+    '''
+    user_id = 123
 
     def __init__(self):
         self.name = 'Code Monkey'  #类成员属性 ，对象实例化后才能访问
