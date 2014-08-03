@@ -1,9 +1,9 @@
-#encoding:utf-8
+# encoding:utf-8
 
 import os
 # print os.path
 # for x in sys.path:
-#     print x
+# print x
 
 # sqlite3 =  importlib.import_module('sqlite3Demo')
 
@@ -16,7 +16,7 @@ import os
 # sql = 'select * from user'
 # cor.execute(sql)
 # for row in cor:
-#     print row
+# print row
 # cnx.close()
 
 # import os
@@ -32,7 +32,7 @@ x = 1
 # print 'globals-->',globals()
 # print 'locals-->',locals()
 
-#%[(key)][flags][width][.precision]typecode
+# %[(key)][flags][width][.precision]typecode
 # print "%(key)-10s=%(value)4d" % dict(key = "a", value = 10)
 #
 # print r'{0}--{1}--{go}'.format('key','value',go='lol')
@@ -84,18 +84,22 @@ def filelist():
     })
     print js
 
+
 # filelist()
 
 # print 'abcdeftghtiasdfasdfasd'.ljust(10,'*')
 
 
 def deleteItmeInList():
-    l = [1,2,3,4]
+    l = [1, 2, 3, 4]
     del l[0]
     del l[0]
     print l
 
+
 import webbrowser
+
+
 def browserTest():
     url = 'http://www.python.org/'
     print webbrowser.open_new_tab(url)
